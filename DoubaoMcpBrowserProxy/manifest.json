@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Omni-Adapter (Doubao)",
+  "version": "2.0",
+  "description": "Omni-Adapter: Doubao platform integration for multi-platform image generation",
+  "permissions": [
+    "cookies",
+    "webNavigation",
+    "storage",
+    "debugger",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://*.doubao.com/*",
+    "https://doubao.com/*",
+    "http://*.doubao.com/*",
+    "http://doubao.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "id": "doubao-enhancer",
+      "matches": ["https://www.doubao.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "48": "icon-48.png",
+      "128": "icon-128.png"
+    }
+  },
+  "icons": {
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  }
+} 
